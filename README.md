@@ -20,7 +20,6 @@ How to use this
 Project Layout
 
 The following tree structure illustrates the organization of the codebase:
-Plaintext
 
 number-guessing-game/
 ├── data/
