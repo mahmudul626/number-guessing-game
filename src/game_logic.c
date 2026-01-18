@@ -12,7 +12,7 @@ void game_funtion(int *win, int *lost) {
         while(limit > 0)
         {
             printf("\n");
-            printf("Chance : %d time | Hint Left: %d %s\n", limit, hintUsed,
+            printf("Chances Left: %d | Hints Left: %d %s\n", limit, hintUsed,
             (limit == 1) ? "(disabled)" : "");
             
             printf("Enter number (or -1 for hint): ");
@@ -64,9 +64,7 @@ void game_funtion(int *win, int *lost) {
                 limit --;
                 if (limit == 0)  {
                                 (*lost) ++;
-                                printf("Out of limit!\n");
-                                printf("No chances left.\n");
-                                printf("You lost this round!\n");
+                                printf("You lost this round! No chances left. The secret number was %d!\n", secretNum);
                                 printf("\n");
                                 break;
                     } else if (secretNum < input)   {
@@ -103,7 +101,7 @@ void game_funtion(int *win, int *lost) {
                         printf("Perfect Guess!\n");
                         printf("\n");
                     } else {
-                        printf("You win\n");
+                        printf("You won!\n");
                         printf("\n");
                     }
                     break;

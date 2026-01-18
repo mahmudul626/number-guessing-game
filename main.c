@@ -36,39 +36,12 @@ int main() {
         fprintf(fptr, "%s %d %d\n", user, win, lost);
         fclose(fptr);
         printf("New user added\n");
-        game_funtion(&win, &lost);
-
-        printf("Wins: %d | Losses: %d\n", win, lost);
-        if (win > lost)
-            {
-                printf("Unstoppable!\n");
-            } else if (win < lost) {
-                printf("Keep-trying!\n");
-            } else {
-                printf("Balanced!\n");
-            }
-
-        update_file(user, win, lost);
-        leaderboard(user, win, lost);
-
+        menu(user, win, lost);
         return 0;
     }
 
     // existing user
     printf("Welcome back %s\n", user);
-    printf("Wins: %d | Losses: %d\n", win, lost);
-    game_funtion(&win, &lost);
-    update_file(user, win, lost);
-    leaderboard(user, win, lost);
-
-    printf("Wins: %d | Losses: %d\n", win, lost);
-    if (win > lost)
-            {
-                printf("Unstoppable!\n");
-            } else if (win < lost) {
-                printf("Keep-trying!\n");
-            } else {
-                printf("Balanced!\n");
-            }
+    menu(user, win, lost);
     return 0;
 }

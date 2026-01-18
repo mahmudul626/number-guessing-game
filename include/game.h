@@ -9,5 +9,6 @@
 void game_funtion(int *win, int *lost);
 void update_file(const char *user, int win, int lost);
 void leaderboard(const char *user, int win, int lost);
+void menu(const char *user, int win, int lost);
 
 #endif
