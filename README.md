@@ -35,7 +35,7 @@ number-guessing-game/
 ├── Makefile
 ├── README.md
 └── LICENSE
-
+```
 ### Demo
 
 ![myshell demo](demo/output.gif)
