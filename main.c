@@ -4,7 +4,7 @@ int main() {
     srand(time(0));
     int win = 0, lost = 0, found = 0;
     char user[1024], name[1024];
-
+    clear_screen();
     printf("Enter Your Name: ");
     scanf("%1023s", user);
 
@@ -44,4 +44,8 @@ int main() {
     printf("Welcome back %s\n", user);
     menu(user, win, lost);
     return 0;
+}
+
+void clear_screen() {
+    printf("\033[2J\033[H");
 }

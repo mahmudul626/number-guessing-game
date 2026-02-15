@@ -45,7 +45,12 @@ void leaderboard(const char *user, int win, int lost)
     }
 
     // print leaderboard
-    printf("\n=========== LEADERBOARD ===========\n");
+    clear_screen();
+    // printf("\n=========== LEADERBOARD ===========\n");
+    printf(BLUE "=========== " RESET);
+    printf(CYAN "LEADERBOARD" RESET);
+    printf(BLUE " ===========\n" RESET);
+
     printf("%-5s %-15s %-6s %-6s\n", "Rank", "Name", "Win", "Lost");
     printf("----------------------------------\n");
 
@@ -54,10 +59,10 @@ void leaderboard(const char *user, int win, int lost)
                i + 1, names[i], wins[i], losses[i]);
 
         if (strcmp(names[i], user) == 0)
-            printf("  <-- YOU");
+            printf(YELLOW"  <-- YOU"RESET);
 
         printf("\n");
     }
 
-    printf("==================================\n");
+    printf(BLUE"==================================\n"RESET);
 }

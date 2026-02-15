@@ -36,4 +36,8 @@ number-guessing-game/
 ├── README.md
 └── LICENSE
 
+### Demo
+
+![myshell demo](demo/output.gif)
+
 -- Md. Mahmudul Hasan Mabud

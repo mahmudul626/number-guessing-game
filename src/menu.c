@@ -5,27 +5,27 @@ void menu(const char *user, int win, int lost) {
     char choice;
 
     while (1) {
-        printf("\n================================\n");
-        printf("       NUMBER GUESSING GAME\n");
-        printf("================================\n");
+        printf(BLUE"================================\n"RESET);
+        printf(CYAN"       NUMBER GUESSING GAME\n"RESET);
+        printf(BLUE"================================\n"RESET);
         printf("1. Play Game\n");
         printf("2. View Leaderboard\n");
         printf("3. Exit\n");
         printf("--------------------------------\n");
-        printf("Enter your choice: ");
+        printf(GREEN"Enter your choice: "RESET);
         scanf(" %c", &choice);
 
         switch(choice) {
             case '1':
                 game_funtion(&win, &lost);
-                printf("Wins: %d | Losses: %d\n", win, lost);
+                printf(GREEN "Wins: %d" RESET " | " RED "Losses: %d\n" RESET, win, lost);
                 if (win > lost)
                     {
-                        printf("Unstoppable!\n");
+                        printf(CYAN"Unstoppable!\n"RESET);
                     } else if (win < lost) {
-                        printf("Keep-trying!\n");
+                        printf(CYAN"Keep-trying!\n"RESET);
                     } else {
-                        printf("Balanced!\n");
+                        printf(CYAN"Balanced!\n"RESET);
                     }
 
                 update_file(user, win, lost);
@@ -34,10 +34,10 @@ void menu(const char *user, int win, int lost) {
                 leaderboard(user, win, lost);
                 break;
             case '3':
-                printf("Thanks for playing!\n");
+                printf(CYAN"Thanks for playing!\n"RESET);
                 return;
             default:
-                printf("Invalid choice!\n");
+                printf(RED"Invalid choice!\n"RESET);
         }
     }
 

@@ -5,20 +5,24 @@ void game_funtion(int *win, int *lost) {
     char choice;
     do
     {
+        clear_screen();
         int input, limit = 3, prev = 0;
         int hintUsed = 2;
         int secretNum = rand() % 10 + 1;
-        printf("\t Number Guessing Game \n");
+        printf(BLUE"================================\n"RESET);
+        printf(CYAN"       NUMBER GUESSING GAME\n"RESET);
+        printf(BLUE"================================\n"RESET);
         while(limit > 0)
         {
             printf("\n");
-            printf("Chances Left: %d | Hints Left: %d %s\n", limit, hintUsed,
-            (limit == 1) ? "(disabled)" : "");
+            printf(YELLOW"Chances Left: %d" RESET "|" CYAN "Hints Left: %d"RESET "%s" "\n", limit, hintUsed,
+            (limit == 1) ? RED"(disabled)"RESET : "");
+
             
             printf("Enter number (or -1 for hint): ");
 
             while (scanf("%d", &input) != 1) {
-            printf("Error! Invalid input\n");
+            printf(RED"Error! Invalid input\n"RESET);
             printf("Enter number (or -1 for hint): ");
             while (getchar() != '\n'); 
             }
@@ -51,6 +55,7 @@ void game_funtion(int *win, int *lost) {
                     if (high > 10) high = 10;
 
                     printf("Hint: Between %d and %d\n", low, high);
+
                 }
 
                 hintUsed --;
@@ -64,7 +69,7 @@ void game_funtion(int *win, int *lost) {
                 limit --;
                 if (limit == 0)  {
                                 (*lost) ++;
-                                printf("You lost this round! No chances left. The secret number was %d!\n", secretNum);
+                                printf(RED"You lost this round! No chances left. The secret number was %d!\n"RESET, secretNum);
                                 printf("\n");
                                 break;
                     } else if (secretNum < input)   {
@@ -98,10 +103,10 @@ void game_funtion(int *win, int *lost) {
             } else {
                     (*win) ++;
                     if(limit == 3) {
-                        printf("Perfect Guess!\n");
+                        printf(GREEN"Perfect Guess!\n"RESET);
                         printf("\n");
                     } else {
-                        printf("You won!\n");
+                        printf(GREEN"You won!\n"RESET);
                         printf("\n");
                     }
                     break;
@@ -115,7 +120,7 @@ void game_funtion(int *win, int *lost) {
     scanf(" %c", &choice);
 
     while (choice != 'y' && choice != 'Y' && choice != 'n' && choice != 'N') {
-        printf("Error! Invalid input\n");
+        printf(RED"Error! Invalid input\n"RESET);
         printf("Do you want to play more (y/n) :");
         while (getchar() != '\n');
         scanf(" %c", &choice);
